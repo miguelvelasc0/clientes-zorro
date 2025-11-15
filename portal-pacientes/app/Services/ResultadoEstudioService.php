@@ -42,7 +42,6 @@ class ResultadoEstudioService
             if ($sucursal) {
                 $query->where('sucursal', $sucursal);
             }
-            
             $resultado = $query->first();
             
             if ($resultado) {
@@ -102,7 +101,7 @@ class ResultadoEstudioService
     private function buscarTablasResultados(string $prefijo): array
     {
         $database = config('database.connections.legacy.database');
-        
+        $prefijo = strtoupper($prefijo);
         // Consultar las tablas que coincidan con el patrón
         $tablas = DB::connection('legacy')
             ->select("SHOW TABLES LIKE '{$prefijo}%'");

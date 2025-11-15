@@ -70,7 +70,6 @@ class Nota extends Model
                 $estudios[] = $this->$campo;
             }
         }
-        
         return $estudios;
     }
     
